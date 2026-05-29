@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+    --app-bg: #f4f6f9;
+    --surface: #ffffff;
+    --surface-alt: #eef2f6;
+    --surface-strong: #e4e9f2;
+    --foreground: #0f172a;
+    --muted: #5b6678;
+    --border: #d8e0ea;
+    --accent: #1469d8;
+    --accent-strong: #0b4fb3;
+    --success: #12805c;
+    --warning: #b45309;
+    --danger: #b42318;
+    --critical: #8b1f1f;
+    --shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --app-bg: #0b0f15;
+        --surface: #111827;
+        --surface-alt: #161f2c;
+        --surface-strong: #1f2937;
+        --foreground: #e5e7eb;
+        --muted: #9aa4b2;
+        --border: #243041;
+        --accent: #4bb0ff;
+        --accent-strong: #1c7ed6;
+        --success: #34d399;
+        --warning: #fbbf24;
+        --danger: #f87171;
+        --critical: #ef4444;
+        --shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.dark {
+    --app-bg: #0b0f15;
+    --surface: #111827;
+    --surface-alt: #161f2c;
+    --surface-strong: #1f2937;
+    --foreground: #e5e7eb;
+    --muted: #9aa4b2;
+    --border: #243041;
+    --accent: #4bb0ff;
+    --accent-strong: #1c7ed6;
+    --success: #34d399;
+    --warning: #fbbf24;
+    --danger: #f87171;
+    --critical: #ef4444;
+    --shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+@theme inline {
+    --color-app: var(--app-bg);
+    --color-surface: var(--surface);
+    --color-surface-alt: var(--surface-alt);
+    --color-surface-strong: var(--surface-strong);
+    --color-foreground: var(--foreground);
+    --color-muted: var(--muted);
+    --color-border: var(--border);
+    --color-accent: var(--accent);
+    --color-accent-strong: var(--accent-strong);
+    --color-success: var(--success);
+    --color-warning: var(--warning);
+    --color-danger: var(--danger);
+    --color-critical: var(--critical);
+    --font-sans: var(--font-sora);
+    --font-mono: var(--font-plex-mono);
+}
+
+@layer base {
+    * {
+        border-color: var(--border);
+    }
+
+    body {
+        font-family: var(--font-sora), system-ui, sans-serif;
+        background: radial-gradient(circle at top left, #ffffff 0%, #edf2f7 45%, #e7ecf5 100%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        body {
+            background: radial-gradient(circle at top left, #111827 0%, #0b0f15 60%, #0b0f15 100%);
+        }
+    }
+
+    .dark body {
+        background: radial-gradient(circle at top left, #111827 0%, #0b0f15 60%, #0b0f15 100%);
+    }
+}
+
+@layer utilities {
+    .glass-panel {
+        background: color-mix(in srgb, var(--surface) 92%, transparent);
+        backdrop-filter: blur(18px);
+    }
+}
