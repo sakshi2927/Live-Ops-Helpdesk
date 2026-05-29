@@ -9,7 +9,7 @@ let socket: Socket<ServerToClientEvents, ClientToServerEvents> | null = null;
 export function getSocket() {
     if (!socket) {
         socket = io(
-            process.env.NEXT_PUBLIC_SOCKET_URL ?? "http://localhost:4000",
+            process.env.NEXT_PUBLIC_SOCKET_URL,
             {
                 autoConnect: false,
                 transports: ["websocket"],
